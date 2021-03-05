@@ -1,13 +1,12 @@
-// import React, { Component } from "react";
+import React from "react";
 
-// class Section extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <h2>Please leave feedback</h2>
-//       </div>
-//     );
-//   }
-// }
+const Section = ({ title, children }) => {
+  return (
+    <section>
+      <h1>{title}</h1>
+      {children}
+    </section>
+  );
+};
 
-// export default Section;
+export default Section;
