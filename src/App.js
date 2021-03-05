@@ -7,31 +7,37 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    good: 3,
-    neutral: 5,
-    bad: 6,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
-  countTotalFeedback() {
+  countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
-  }
+  };
 
-  countPositiveFeedbackPercentage() {
+  countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     const total = this.countTotalFeedback();
     return Math.round((good / total) * 100);
-  }
+  };
+
+  onLeaveFeedback = (ev) => {
+    const { name } = ev.target;
+    this.setState((prevState) => ({ [name]: prevState[name] + 1 }));
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
     const countTotalFeedback = this.countTotalFeedback();
     const countPositiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
+    const onLeaveFeedback = this.onLeaveFeedback;
 
     return (
       <div className="App">
         <h2>Please leave feedback</h2>
-        <FeedbackOptions />
+        <FeedbackOptions onLeaveFeedback={onLeaveFeedback} />
 
         <div>
           <h2>Statistics</h2>
