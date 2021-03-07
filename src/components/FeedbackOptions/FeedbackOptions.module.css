@@ -11,36 +11,17 @@
   margin: 10px;
   margin-bottom: 20px;
   padding: 5px;
+  color: rgb(167, 6, 153);
   background-color: #fff;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 4px rgba(0, 0, 0, 0.12);
   border: none;
   border-radius: 6px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 900;
 }
 
-.buttonGood {
-  composes: button;
-  color: rgb(4, 221, 22);
-  /* background-color: rgb(4, 221, 22); */
-}
-
-.buttonNeutral {
-  composes: button;
-  color: rgb(240, 145, 3);
-  /* background-color: rgb(240, 145, 3); */
-}
-
-.buttonBad {
-  composes: button;
-  color: rgb(255, 0, 0);
-  /* background-color: rgb(255, 0, 0); */
-}
-
-.buttonGood:hover,
-.buttonNeutral:hover,
-.buttonBad:hover {
+.button:hover {
   font-size: 15px;
   transform: scale(1.05);
 }

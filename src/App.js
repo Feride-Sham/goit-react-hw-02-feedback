@@ -13,17 +13,20 @@ class App extends Component {
     bad: 0,
   };
 
+  // счиатет общее кол-во оценок
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
   };
 
+  // считает процент положительных оценок
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     const total = this.countTotalFeedback();
     return total > 0 ? Math.round((good / total) * 100) : 0;
   };
 
+  // записывает оценку
   onLeaveFeedback = (ev) => {
     const name = ev.target.name;
     this.setState((prevState) => ({ [name]: prevState[name] + 1 }));
@@ -38,7 +41,10 @@ class App extends Component {
     return (
       <div className="App">
         <Section title={"Please leave feedback"}>
-          <FeedbackOptions onLeaveFeedback={onLeaveFeedback} />
+          <FeedbackOptions
+            options={["good", "neutral", "bad"]}
+            onLeaveFeedback={onLeaveFeedback}
+          />
         </Section>
 
         {countTotalFeedback > 0 ? (
